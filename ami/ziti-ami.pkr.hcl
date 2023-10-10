@@ -62,17 +62,17 @@ build {
   }
 
   provisioner "file" {
-    source      = "etc/log/beats.crt"
+    source      = "/home/runner/work/ziti-tests-ami/ziti-tests-ami/beats.crt"
     destination = "/home/ubuntu/beats.crt"
   }
 
   provisioner "file" {
-    source      = "etc/log/beats.key"
+    source      = "/home/runner/work/ziti-tests-ami/ziti-tests-ami/beats.key"
     destination = "/home/ubuntu/beats.key"
   }
 
   provisioner "file" {
-    source      = "etc/log/logstashCA.crt"
+    source      = "/home/runner/work/ziti-tests-ami/ziti-tests-ami/logstashCA.crt"
     destination = "/home/ubuntu/logstashCA.crt"
   }
 
