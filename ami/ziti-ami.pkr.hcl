@@ -143,10 +143,6 @@ build {
       "sudo apt-get -qq -y install consul",
 
       # Set New Beats files with proper permissions
-      "sudo chown root /home/ubuntu/system.yml",
-      "sudo chown :root /home/ubuntu/system.yml",
-      "sudo chown root /home/ubuntu/aws.yml",
-      "sudo chown :root /home/ubuntu/aws.yml",
       "sudo chown root /home/ubuntu/filebeat.yml",
       "sudo chown :root /home/ubuntu/filebeat.yml",
       "sudo chown root /home/ubuntu/metricbeat.yml",
@@ -154,7 +150,7 @@ build {
 
       "sudo filebeat modules enable system",
       "sudo mv /home/ubuntu/filebeat.yml /etc/filebeat/",
-      "sudo mv  /home/ubuntu/system.yml /etc/filebeat/modules.d/system.yml",
+
 
       "sudo mv /home/ubuntu/metricbeat.yml /etc/metricbeat/",
       "sudo systemctl enable metricbeat",
