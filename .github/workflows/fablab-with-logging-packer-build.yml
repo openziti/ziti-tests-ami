@@ -33,6 +33,12 @@ jobs:
           unzip packer_1.6.0_linux_amd64.zip
           sudo mv packer /usr/local/bin/
         shell: bash
+      - name: Add Packer to PATH
+        run: |
+          sudo echo 'export PATH=$PATH:/usr/local/bin' >> $HOME/.bashrc
+          source ~/.bashrc
+          packer --version
+        if: success()
       - name: Configure AWS credentials
         run: |
           mkdir /home/runner/.aws
