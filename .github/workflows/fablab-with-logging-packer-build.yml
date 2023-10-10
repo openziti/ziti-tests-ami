@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - *
+      - '*'
 env:
   GOFLAGS: "-trimpath"
   GOX_OUTPUT: "release/{{.Arch}}/{{.OS}}/{{.Dir}}"
