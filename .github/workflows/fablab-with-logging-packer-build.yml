@@ -48,7 +48,6 @@ jobs:
           cat ~/.aws/credentials
       - name: Build AMI with Packer
         run: |
-          cd /home/runner/work/ziti-tests-ami/ziti-tests-ami
-          ls -lsa
+          cd ami
           packer validate .
           packer build ziti-ami.pkr.hcl
