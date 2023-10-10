@@ -50,6 +50,6 @@ jobs:
         run: |
           cd ami
           ls -lsa
-          packer init 
+          packer init .
           packer validate .
           packer build ziti-ami.pkr.hcl
