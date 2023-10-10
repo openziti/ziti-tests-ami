@@ -27,10 +27,18 @@ jobs:
           echo "${{ secrets.BEATS_CRT }}" > beats.crt
           echo "${{ secrets.BEATS_KEY }}" > beats.key
           echo "${{ secrets.LOGSTASH_CRT }}" > logstashCA.crt
-          pwd
-          ls -lsa
-      - name: Packer Validate and Build
+      - name: Install Packer
         run: |
-          cd ami/
-          packer validate ziti-ami.pkr.hcl
-          packer build ziti-ami.pkr.hcl
+          wget https://releases.hashicorp.com/packer/1.6.0/packer_1.6.0_linux_amd64.zip
+          unzip packer_1.6.0_linux_amd64.zip
+          sudo mv packer /usr/local/bin/
+        shell: bash
+      - name: Configure AWS credentials
+        run: |
+          echo "[default]
+          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}" > ~/.aws/credentials
+      - name: Build AMI with Packer
+        run: |
+          packer init /home/runner/work/ziti-tests-ami/ziti-tests-ami
+          packer build /home/runner/work/ziti-tests-ami/ziti-tests-ami/ziti-ami.pkr.hcl
