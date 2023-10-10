@@ -45,8 +45,9 @@ jobs:
           echo "[default]
           aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}" > ~/.aws/credentials
+          cat ~/.aws/credentials
       - name: Build AMI with Packer
         run: |
           cd /home/runner/work/ziti-tests-ami/ziti-tests-ami
-          packer init .
+          packer validate ziti-ami.pkr.hcl
           packer build ziti-ami.pkr.hcl
