@@ -49,5 +49,7 @@ jobs:
       - name: Build AMI with Packer
         run: |
           cd ami
+          ls -lsa
+          packer init 
           packer validate .
           packer build ziti-ami.pkr.hcl
