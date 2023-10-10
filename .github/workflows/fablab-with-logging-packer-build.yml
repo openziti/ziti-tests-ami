@@ -24,17 +24,11 @@ jobs:
         uses: actions/checkout@v3
       - name: Create files
         run: |
-          ls -lsa
-          cd ..
-          ls -lsa
-          cd ..
-          ls -lsa
-          cd etc
-          mkdir log
-          cd log
           echo "${{ secrets.BEATS_CRT }}" > beats.crt
           echo "${{ secrets.BEATS_KEY }}" > beats.key
           echo "${{ secrets.LOGSTASH_CRT }}" > logstashCA.crt
+          pwd
+          ls -lsa
       - name: Packer Validate and Build
         run: |
           cd ami/
