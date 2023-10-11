@@ -27,8 +27,6 @@ jobs:
           echo "${{ secrets.BEATS_CRT }}" > beats.crt
           echo "${{ secrets.BEATS_KEY }}" > beats.key
           echo "${{ secrets.LOGSTASH_CRT }}" > logstashCA.crt
-          pwd
-          ls -lsa
       - name: Install Packer
         run: |
           wget https://releases.hashicorp.com/packer/1.9.2/packer_1.9.2_linux_amd64.zip
@@ -51,7 +49,6 @@ jobs:
       - name: Build AMI with Packer
         run: |
           cd ami
-          ls -lsa
           packer init .
           packer validate .
           packer build ziti-ami.pkr.hcl
