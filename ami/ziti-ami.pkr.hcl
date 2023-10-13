@@ -16,7 +16,13 @@ variable "elastic_version" {
 source "amazon-ebs" "ziti-tests-ubuntu-ami" {
   ami_description = "An Ubuntu AMI that has everything needed for running fablab tests."
   ami_name        = "ziti-tests-{{ timestamp }}"
-  ami_regions     = ["us-east-1", "us-east-2", "us-west-1", "us-west-2", "ca-central-1", "ap-northeast-1", "ap-southeast-2", "sa-east-1", "eu-central-1", "af-south-1"]
+  ami_regions     = [ 
+      "us-east-1", "us-east-2", "us-west-1", "us-west-2", 
+      "ca-central-1", 
+      "ap-northeast-1", "ap-southeast-2", "ap-southeast-4", 
+      "sa-east-1", 
+      "eu-central-1", "eu-west-2", 
+      "af-south-1"]
   instance_type   = "t2.micro"
   region          = "us-east-1"
   source_ami_filter {
