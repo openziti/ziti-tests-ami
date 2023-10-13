@@ -6,7 +6,6 @@ regions=(
 "ca-central-1" 
 "ap-northeast-1" 
 "ap-southeast-2" 
-"ap-southeast-4"
 "sa-east-1"  
 "eu-central-1"  
 "eu-west-2"
