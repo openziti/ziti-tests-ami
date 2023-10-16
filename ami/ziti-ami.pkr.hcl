@@ -166,6 +166,9 @@ build {
 
       "sudo bash -c \"echo 'ubuntu soft nofile 40960' >> /etc/security/limits.conf\"",
       "sudo sed -i 's/ENABLED=\"false\"/ENABLED=\"true\"/g' /etc/default/sysstat",
+     
+      # Create log directory for test applications
+      "mkdir -p /home/ubuntu/logs",
     ]
   }
 }
