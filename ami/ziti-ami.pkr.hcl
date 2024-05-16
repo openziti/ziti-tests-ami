@@ -57,6 +57,11 @@ build {
   }
 
   provisioner "file" {
+    source      = "www/files.tar.bz2"
+    destination = "/home/ubuntu/files.tar.bz2"
+  }
+
+  provisioner "file" {
     source      = "etc/log/10-ziti-logs.conf"
     destination = "/home/ubuntu/10-ziti-logs.conf"
   }
@@ -169,6 +174,8 @@ build {
      
       # Create log directory for test applications
       "mkdir -p /home/ubuntu/logs",
+      "mkdir -p /home/ubunut/www",
+      "mv /home/ubuntu/files.tar.bz2 /home/ubuntu/www/files.tar.bz2",
     ]
   }
 }
