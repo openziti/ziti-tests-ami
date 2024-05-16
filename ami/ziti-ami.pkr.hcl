@@ -174,7 +174,7 @@ build {
      
       # Create log directory for test applications
       "mkdir -p /home/ubuntu/logs",
-      "mkdir -p /home/ubunut/www",
+      "mkdir -p /home/ubuntu/www",
       "mv /home/ubuntu/files.tar.bz2 /home/ubuntu/www/files.tar.bz2",
     ]
   }
