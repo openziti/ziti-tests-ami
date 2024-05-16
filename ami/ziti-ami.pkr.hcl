@@ -140,6 +140,7 @@ build {
       "sudo apt-get -qq -y --no-install-recommends install tcpdump",
       "sudo apt-get -qq -y --no-install-recommends install sysstat",
       "sudo apt-get -qq -y --no-install-recommends install jq",
+      "sudo apt-get -qq -y --no-install-recommends install bzip2",
       "sudo apt-get -qq -y --no-install-recommends upgrade",
 
       # Install filebeat and metricbeat
