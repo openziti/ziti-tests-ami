@@ -135,7 +135,7 @@ build {
 
       # Linux updates/package installs
       "sudo apt-get -qq -y update",
-      "sudo apt-get -qq -y --no-install-recommends install awscli",
+      "sudo snap install aws-cli",
       "sudo apt-get -qq -y --no-install-recommends install iperf3",
       "sudo apt-get -qq -y --no-install-recommends install tcpdump",
       "sudo apt-get -qq -y --no-install-recommends install sysstat",
