@@ -102,8 +102,8 @@ build {
       "sudo ufw deny in 443/tcp",
 
       # Create directories for beats/logstash certs and keys
-      "sudo mkdir /etc/pki/",
-      "sudo mkdir /etc/pki/beats/",
+      "sudo mkdir -p /etc/pki/",
+      "sudo mkdir -p /etc/pki/beats/",
 
       # Set custom files with proper permissions/owners/groups
       "sudo chown root /home/ubuntu/99remote-not-fancy",
