@@ -91,6 +91,11 @@ build {
     destination = "/home/ubuntu/logstashCA.crt"
   }
 
+  provisioner "file" {
+    source      = ".bash.completions.ziti"
+    destination = "/home/ubuntu/.bash.completions.ziti"
+  }
+
   provisioner "shell" {
     inline = [
       # Setup UFW to allow for blocking of 80/443 ports for test
@@ -177,6 +182,9 @@ build {
       "mkdir -p /home/ubuntu/logs",
       "mkdir -p /home/ubuntu/www",
       "mv /home/ubuntu/files.tar.bz2 /home/ubuntu/www/files.tar.bz2",
+
+      "echo 'export PATH=$PATH:/home/ubuntu/fablab/bin' >> .bashrc",
+      "echo 'source ~/.bash.completions.ziti' >> .bashrc",
     ]
   }
 }
