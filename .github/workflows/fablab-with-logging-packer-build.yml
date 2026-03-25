@@ -15,6 +15,7 @@ env:
   S3_KEY: ${{ secrets.AWS_ACCESS_KEY_ID }}
   S3_SECRET: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   LOGSTASH_ENDPOINT: ${{ secrets.LOGSTASH_ENDPOINT }}
+  PACKER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   build:
     name: Packer Build using GH Secrets
