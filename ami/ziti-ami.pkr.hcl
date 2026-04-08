@@ -52,6 +52,11 @@ build {
   }
 
   provisioner "file" {
+    source      = "etc/sysctl.d/52-core-dumps.conf"
+    destination = "/home/ubuntu/52-core-dumps.conf"
+  }
+
+  provisioner "file" {
     source      = "etc/systemd/resolved.conf.d/ziti-tunnel.conf"
     destination = "/home/ubuntu/ziti-tunnel.conf"
   }
@@ -131,6 +136,7 @@ build {
       "sudo chmod 755 /etc/sysctl.d",
       "sudo mv /home/ubuntu/99remote-not-fancy /etc/apt/apt.conf.d/",
       "sudo mv /home/ubuntu/51-network-tuning.conf /etc/sysctl.d/",
+      "sudo mv /home/ubuntu/52-core-dumps.conf /etc/sysctl.d/",
       "sudo mv /home/ubuntu/10-ziti-logs.conf /etc/sysctl.d/",
       "sudo mv /home/ubuntu/beats.crt /etc/pki/beats/",
       "sudo mv /home/ubuntu/beats.key /etc/pki/beats/",
@@ -176,6 +182,7 @@ build {
       "sudo systemctl start filebeat",
 
       "sudo bash -c \"echo 'ubuntu soft nofile 40960' >> /etc/security/limits.conf\"",
+      "sudo bash -c \"echo 'ubuntu soft core unlimited' >> /etc/security/limits.conf\"",
       "sudo sed -i 's/ENABLED=\"false\"/ENABLED=\"true\"/g' /etc/default/sysstat",
      
       # Create log directory for test applications
