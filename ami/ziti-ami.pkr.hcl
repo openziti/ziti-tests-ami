@@ -183,6 +183,11 @@ build {
 
       "sudo bash -c \"echo 'ubuntu soft nofile 40960' >> /etc/security/limits.conf\"",
       "sudo bash -c \"echo 'ubuntu soft core unlimited' >> /etc/security/limits.conf\"",
+
+      # Disable apport so it doesn't override kernel.core_pattern at boot.
+      # Our sysctl.d/52-core-dumps.conf sets core_pattern to write files directly.
+      "sudo systemctl disable apport.service || true",
+      "sudo sed -i 's/enabled=1/enabled=0/' /etc/default/apport || true",
       "sudo sed -i 's/ENABLED=\"false\"/ENABLED=\"true\"/g' /etc/default/sysstat",
      
       # Create log directory for test applications
